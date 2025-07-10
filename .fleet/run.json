@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+            "type": "java-source-run",
+            "name": "Java-source-run configuration",
+            "sourceFile": "src/arrays/Task001.java"
+        }
+    ]
+}
