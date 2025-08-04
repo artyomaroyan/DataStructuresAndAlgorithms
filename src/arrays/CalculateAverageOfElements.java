@@ -8,11 +8,12 @@ import java.util.logging.Logger;
  * Date: 11.07.25
  * Time: 15:43:33
  * <p>
+ * Task 004
  * Calculate the average of array elements.
  * After calculating the sum, divide it by the number of elements (length)
  */
-public class Task004 {
-    private static final Logger logger = Logger.getLogger(Task004.class.getName());
+public class CalculateAverageOfElements {
+    private static final Logger logger = Logger.getLogger(CalculateAverageOfElements.class.getName());
     public static void main(String[] args) {
         test("Test_1", new int[] {10, 19, 22, 56});
         test("Test_2", new int[] {3, 28, 85, 64, 45});
