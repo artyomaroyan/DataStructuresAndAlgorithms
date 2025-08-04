@@ -9,11 +9,12 @@ import static java.util.logging.Level.INFO;
  * Date: 09.07.25
  * Time: 16:43:53
  * <p>
+ * Task 001
  * Find the maximum element in an array.
  * Traverse the array and compare each element with a variable max. Update max if a bigger element is found.
  */
-public class Task001 {
-    private static final Logger logger = Logger.getLogger(Task001.class.getName());
+public class FindMaximumElement {
+    private static final Logger logger = Logger.getLogger(FindMaximumElement.class.getName());
 
     public static void main(String[] args) {
         test("Test_1", new int[]{84, 95, 99, 73, 97, 17, 42, 75, 90, 36, 23, 67, 26, 86, 88, 96, 13, 96, 66, 80, 41});
