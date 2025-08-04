@@ -9,11 +9,12 @@ import static java.util.logging.Level.INFO;
  * Date: 10.07.25
  * Time: 02:28:31
  * <p>
+ * Task 002
  * Find the minimum element in an array.
  * Similar to finding maximum, but update a min variable instead if a smaller element is found.
  */
-public class Task002 {
-    private static final Logger logger = Logger.getLogger(Task002.class.getName());
+public class FindMinimumElement {
+    private static final Logger logger = Logger.getLogger(FindMinimumElement.class.getName());
 
     public static void main(String[] args) {
         test("Test_1", new int[]{8, 19, 98, 99, 41, 79, 36, 51, 88, 1, 58, 8, 87, 100, 14, 13, 94, 85, 63, 81, 28, 87});
