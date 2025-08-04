@@ -8,11 +8,12 @@ import java.util.logging.Logger;
  * Date: 11.07.25
  * Time: 15:03:37
  * <p>
+ * Task 003
  * Calculate the sum of all elements
  * Travers through the array and add each element to a cumulative sum
  */
-public class Task003 {
-    private static final Logger LOGGER = Logger.getLogger(Task003.class.getName());
+public class CalculateSumOfElements {
+    private static final Logger LOGGER = Logger.getLogger(CalculateSumOfElements.class.getName());
 
     public static void main(String[] args) {
         test("Test_1", new int[] {83, 76, 21});
