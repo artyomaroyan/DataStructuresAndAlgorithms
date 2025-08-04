@@ -9,11 +9,12 @@ import java.util.logging.Logger;
  * Date: 11.07.25
  * Time: 16:11:27
  * <p>
+ * Task 005
  * Reverse an array.
  * Swap elements from the two ends (start and end) moving toward center
  */
-public class Task005 {
-    private static final Logger logger = Logger.getLogger(Task005.class.getName());
+public class ReverseArray {
+    private static final Logger logger = Logger.getLogger(ReverseArray.class.getName());
     public static void main(String[] args) {
         test("Test_1", new int[] {3, 38, 57, 12, 88, 9, 77, 99, 24, 94, 98, 38, 46, 87, 48, 71, 60, 77, 94});
         test("Test_2", new int[] {96, 73, 29, 67, 5, 13, 85, 49, 50, 73, 59, 94, 74, 39, 26, 64, 24, 92, 57, 57, 90, 50, 67});
