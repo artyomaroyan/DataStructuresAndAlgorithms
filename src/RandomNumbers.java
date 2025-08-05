@@ -16,14 +16,23 @@ public class RandomNumbers {
     private static final Logger logger = Logger.getLogger(RandomNumbers.class.getName());
 
     public static void main(String[] args) {
-
         generateRandomIntNumber();
         generateRandomDoubleNumber();
     }
 
+    private static void generateRandomIntNumber() {
+        // Generate between 10 and 30 random numbers
+        int count = RANDOM.nextInt(15) + 16;
+
+        // Generate random integers (0-100)
+        int[] numbers = RANDOM.ints(count, 0, 101).toArray();
+
+        logger.log(INFO, () -> "Generated " + count + " random integers: " + Arrays.toString(numbers));
+    }
+
     private static void generateRandomDoubleNumber() {
         // Generate between 15 and 30 random numbers
-        int count = RANDOM.nextInt(15) + 16;
+        int count = RANDOM.nextInt(1) + 3;
 
         // Stores both Integers and Doubles
         List<Number> numbers = new ArrayList<>();
@@ -36,15 +45,5 @@ public class RandomNumbers {
             }
         }
         logger.log(INFO, () -> "Generated " + count + " mixed random numbers: " + numbers);
-    }
-
-    private static void generateRandomIntNumber() {
-        // Generate between 10 and 30 random numbers
-        int count = RANDOM.nextInt(10) + 21;
-
-        // Generate random integers (0-100)
-        int[] numbers = RANDOM.ints(count, 0, 101).toArray();
-
-        logger.log(INFO, () -> "Generated " + count + " random integers: " + Arrays.toString(numbers));
     }
 }
