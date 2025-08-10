@@ -7,6 +7,9 @@ import java.util.logging.Logger;
  * Author: Artyom Aroyan
  * Date: 05.08.25
  * Time: 23:20:22
+ * Task 008
+ * Explanation: Use two pointers to pick smaller elements from each array and put into new array.
+ * Hint: Handle remaining elements once one array is exhausted.
  */
 public class MergeTwoSortedArrays {
     private static final Logger logger = Logger.getLogger(MergeTwoSortedArrays.class.getName());
