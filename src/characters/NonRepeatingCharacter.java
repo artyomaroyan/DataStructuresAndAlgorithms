@@ -1,6 +1,8 @@
 package characters;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,17 +18,16 @@ public class NonRepeatingCharacter {
         logger.log(Level.INFO, () -> "result: " + findFirstNonRepeatingCharacter(str));
     }
 
-    private static char findFirstNonRepeatingCharacter(String str) {
-        HashMap<Character, Integer> count = new HashMap<>();
+    private static Character findFirstNonRepeatingCharacter(String str) {
+        HashMap<Character, Integer> count = new LinkedHashMap<>();
         for (char ch : str.toCharArray()) {
             count.put(ch, count.getOrDefault(ch, 0) + 1);
         }
 
-        for (char ch : str.toCharArray()) {
-            if (count.get(ch) == 1) {
-                return ch;
-            }
+        for (Map.Entry<Character, Integer> entry : count.entrySet()) {
+            if (entry.getValue() == 1)
+                return entry.getKey();
         }
-        return 0;
+        return null;
     }
 }
