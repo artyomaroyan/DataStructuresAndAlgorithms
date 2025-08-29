@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 /**
@@ -12,5 +13,26 @@ import java.util.logging.Logger;
  * Hint: XOR all elements together.
  */
 public class FindTheNumber {
+    private static final Logger logger = Logger.getLogger(FindTheNumber.class.getName());
 
+    public static void main(String[] args) {
+        test("Test_1", new int[] {1, 2, 3, 4, 3, 2, 1});
+        test("Test_2", new int[] {7, 3, 5, 1, 5, 3, 7});
+        test("Test_3", new int[] {2, 2, 1});
+        test("Test_4", new int[] {10, 20, 10, 30, 20});
+    }
+
+    private static void test(String label, int[] array) {
+        logger.info(() -> " original array: " + Arrays.toString(array));
+        int num = xorArray(array);
+        logger.info(() -> label + " unique number is: " + num);
+    }
+
+    private static int xorArray(int[] array) {
+        int xor = 0;
+        for (int num : array) {
+            xor ^= num;
+        }
+        return xor;
+    }
 }
