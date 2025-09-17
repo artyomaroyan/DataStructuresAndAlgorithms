@@ -22,10 +22,10 @@ public class RandomNumbers {
 
     private static void generateRandomIntNumber() {
         // Generate between 10 and 30 random numbers
-        int count = RANDOM.nextInt(15) + 16;
+        int count = RANDOM.nextInt(5) + 10;
 
         // Generate random integers (0-100)
-        int[] numbers = RANDOM.ints(count, -100, 101).toArray();
+        int[] numbers = RANDOM.ints(count, -5, 5).toArray();
 
         logger.log(INFO, () -> "Generated " + count + " random integers: " + Arrays.toString(numbers));
     }
