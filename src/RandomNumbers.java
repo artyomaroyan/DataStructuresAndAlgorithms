@@ -25,7 +25,7 @@ public class RandomNumbers {
         int count = RANDOM.nextInt(15) + 16;
 
         // Generate random integers (0-100)
-        int[] numbers = RANDOM.ints(count, 0, 101).toArray();
+        int[] numbers = RANDOM.ints(count, -100, 101).toArray();
 
         logger.log(INFO, () -> "Generated " + count + " random integers: " + Arrays.toString(numbers));
     }
