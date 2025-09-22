@@ -8,6 +8,7 @@ import java.util.logging.Logger;
  * Date: 22.09.25
  * Time: 21:15:05
  * Task003
+ * Count vowels and consonants.
  */
 public class CountVowels {
     private static final Logger logger = Logger.getLogger(CountVowels.class.getName());
