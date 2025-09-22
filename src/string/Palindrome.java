@@ -1,18 +1,31 @@
 package string;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Author: Artyom Aroyan
  * Date: 04.08.25
  * Time: 18:33:33
+ * Task002
  */
 public class Palindrome {
     private static final Logger logger = Logger.getLogger(Palindrome.class.getName());
     public static void main(String[] args) {
-        String str = "abccba";
-        logger.log(Level.INFO, () -> "Result: " + isPalindrome(str));
+        test("Test_1", "madam");
+        test("Test_2", "racecar");
+        test("Test_3", "level");
+        test("Test_4", "hello");
+        test("Test_5", "java");
+        test("Test_6", "world");
+    }
+
+    private static void test(String label, String str) {
+        boolean result1 = isPalindrome(str);
+        logger.info(() -> label + " Result_1: " + result1);
+        boolean result2 = isPalindromeOdd(str);
+        logger.info(() -> label + " Result_2: " + result2);
+        boolean result3 = isPalindromeOdd2(str);
+        logger.info(() -> label + " Result_3: " + result3);
     }
 
     // this is fine but this will return false for "racecar" but should return ture,
@@ -22,7 +35,6 @@ public class Palindrome {
         String suffix = str.substring(str.length() / 2);
         StringBuilder sb = new StringBuilder(prefix);
         var reversed = sb.reverse().toString();
-
         return reversed.equals(suffix);
     }
 
