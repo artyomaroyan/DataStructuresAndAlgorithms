@@ -18,6 +18,7 @@ public class RandomNumbers {
     public static void main(String[] args) {
         generateRandomIntNumber();
         generateRandomDoubleNumber();
+        randomDoubleNumbers();
     }
 
     private static void generateRandomIntNumber() {
@@ -45,5 +46,16 @@ public class RandomNumbers {
             }
         }
         logger.log(INFO, () -> "Generated " + count + " mixed random numbers: " + numbers);
+    }
+
+    private static void randomDoubleNumbers() {
+        int count = 20;
+        double min = 10_000;
+        double max = 100_000;
+
+        for (int i = 0; i < count; i++) {
+            double value = min + (max - min) * RANDOM.nextDouble();
+            System.out.printf("%.2f%n", value);
+        }
     }
 }
