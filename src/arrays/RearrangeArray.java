@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class RearrangeArray {
     private static final Logger logger = Logger.getLogger(RearrangeArray.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{-61, -86, 11, 39, -69, 21, 71, -79, 95, -26, 88, -40, 83, -16, 6});
         test("Test_2", new int[]{68, 47, -35, 9, 80, 38, 10, 28, -97, -43, 55, 46, -8, -28, 59, 13, -24});
         test("Test_3", new int[]{-15, 32, 16, 7, -27, 27, -82, -57, 95, -80, 25, 2, 79, -89, 27, -38, -12});

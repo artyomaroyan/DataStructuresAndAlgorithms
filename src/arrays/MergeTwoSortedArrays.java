@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class MergeTwoSortedArrays {
     private static final Logger logger = Logger.getLogger(MergeTwoSortedArrays.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1 ",
                 new int[] {89, 39, 33, 64, 59, 58, 77, 97, 49, 89, 38},
                 new int[] {70, 50, 21, 98, 67, 82, 25, 92, 12, 60, 92, 45,});

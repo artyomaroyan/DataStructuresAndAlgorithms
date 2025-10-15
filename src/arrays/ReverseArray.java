@@ -15,7 +15,8 @@ import java.util.logging.Logger;
  */
 public class ReverseArray {
     private static final Logger logger = Logger.getLogger(ReverseArray.class.getName());
-    public static void main(String[] args) {
+
+    static void main() {
         test("Test_1", new int[] {3, 38, 57, 12, 88, 9, 77, 99, 24, 94, 98, 38, 46, 87, 48, 71, 60, 77, 94});
         test("Test_2", new int[] {96, 73, 29, 67, 5, 13, 85, 49, 50, 73, 59, 94, 74, 39, 26, 64, 24, 92, 57, 57, 90, 50, 67});
         test("Test_3", new int[] {33, 96, 11, 90, 40, 45, 42, 86, 14, 59, 79, 76, 53, 7, 29, 84, 47, 26, 79, 20, 4, 7, 29, 65, 78, 0, 33, 23});

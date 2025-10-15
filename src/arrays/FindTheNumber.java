@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class FindTheNumber {
     private static final Logger logger = Logger.getLogger(FindTheNumber.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {1, 2, 3, 4, 3, 2, 1});
         test("Test_2", new int[] {7, 3, 5, 1, 5, 3, 7});
         test("Test_3", new int[] {2, 2, 1});

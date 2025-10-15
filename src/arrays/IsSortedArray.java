@@ -13,7 +13,8 @@ import java.util.logging.Logger;
  */
 public class IsSortedArray {
     private static final Logger logger = Logger.getLogger(IsSortedArray.class.getName());
-    public static void main(String[] args) {
+
+    static void main() {
         test("Test_1", new int[] {10, 24, 71, 79, 98, 9, 14, 16, 73, 33, 51, 24, 40, 61, 69, 72, 78, 15, 19, 29, 47});
         test("Test_1.1", new int[] {9, 10, 14, 15, 16, 19, 24, 24, 29, 33, 40, 47, 51, 61, 69, 71, 72, 73, 78, 79, 98});
         test("Test_2", new int[] {48, 93, 23, 74, 32, 50, 27, 72, 37, 56, 13, 12, 15, 37, 41, 56, 49, 28, 2, 22, 40, 97, 23, 52, 40, 7, 100, 19});

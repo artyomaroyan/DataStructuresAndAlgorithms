@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class MoveZeroes {
     private static final Logger logger = Logger.getLogger(MoveZeroes.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{0, 2, 33, 0, 65, 1, 7, 90});
         test("Test_2", new int[]{32, 1, 4, 7, 43, 0, 23, 30, 434, 0, 1, 0});
         test("Test_3", new int[]{10, 31, 57, 0, 2, 4, 120, 32, 78, 9});

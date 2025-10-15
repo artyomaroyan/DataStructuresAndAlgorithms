@@ -15,7 +15,7 @@ public class RotateAnArrayByKPositions {
     private static final int K_POSITION = 2;
     private static final Logger logger = Logger.getLogger(RotateAnArrayByKPositions.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{89, 89, 17, 85, 79, 4, 53, 73, 63, 35, 50, 31, 66, 33, 11, 40});
         test("Test_2", new int[]{92, 54, 62, 5, 52, 91, 85, 31, 32, 57, 4, 34, 82, 72, 66, 18, 67, 55, 52, 27});
         test("Test_3", new int[]{12, 32, 1});

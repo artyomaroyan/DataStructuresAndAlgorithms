@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindTheMaximumSumSubarray {
     private static final Logger log = Logger.getLogger(FindTheMaximumSumSubarray.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4});
         test("Test_2", new int[]{-26, -74, 80, 21, -12, -95, 64, 75, -41});
         test("Test_3", new int[]{-80, 21, -41, 13, -18, 26, 80, 2, 10, 29});

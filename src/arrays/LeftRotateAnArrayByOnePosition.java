@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class LeftRotateAnArrayByOnePosition {
     private static final Logger logger = Logger.getLogger(LeftRotateAnArrayByOnePosition.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {71, 54, 14, 28, 10, 39, 5, 2, 68, 14, 23, 38});
         test("Test_2", new int[] {4, 17, 17, 61, 29, 13, 34, 78, 84, 45, 73});
         test("Test_3", new int[] {12});

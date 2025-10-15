@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class SegregateNumbers {
     private static final Logger logger = Logger.getLogger(SegregateNumbers.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {68, 92, 28, 42, 52, 33, 87, 27, 53, 42, 79, 58, 83, 9, 14, 53, 4, 74});
         test("Test_2", new int[] {20, 12, 85, 34, 0, 13, 1, 58, 76, 55, 83, 64, 24, 80, 70, 51, 64});
         test("Test_3", new int[] {3, 36, 67, 88, 9, 8, 35, 62, 44, 19, 62, 0, 7, 70, 53, 2, 78, 46, 40, 58, 53, 51, 2, 39, 22, 74, 73});
