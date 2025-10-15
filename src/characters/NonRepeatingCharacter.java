@@ -13,7 +13,8 @@ import java.util.logging.Logger;
  */
 public class NonRepeatingCharacter {
     private static final Logger logger = Logger.getLogger(NonRepeatingCharacter.class.getName());
-    public static void main(String[] args) {
+
+    static void main() {
         String str = "lkmldmsfkskdfn";
         logger.log(Level.INFO, () -> "result: " + findFirstNonRepeatingCharacter(str));
     }
