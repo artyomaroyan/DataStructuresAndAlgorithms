@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindTheMajorityElement {
     private static final Logger log = Logger.getLogger(FindTheMajorityElement.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{7, 7, 3, 7, 2, 7, 7, 5, 7});
         test("Test_2", new int[]{4, 1, 4, 2, 4, 3, 4, 4});
         test("Test_3", new int[]{1, 2, 3, 2, 3, 1, 4, 5});

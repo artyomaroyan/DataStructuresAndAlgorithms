@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class CalculateAverageOfElements {
     private static final Logger logger = Logger.getLogger(CalculateAverageOfElements.class.getName());
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {10, 19, 22, 56});
         test("Test_2", new int[] {3, 28, 85, 64, 45});
         test("Test_3", new int[] {52, 7, 67, 3, 20, 41});

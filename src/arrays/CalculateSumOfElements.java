@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class CalculateSumOfElements {
     private static final Logger LOGGER = Logger.getLogger(CalculateSumOfElements.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {83, 76, 21});
         test("Test_2", new int[] {5, 2, 70});
         test("Test_3", new int[] {19, 81, 10});

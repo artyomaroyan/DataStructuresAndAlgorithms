@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindMissingNumber {
     private static final Logger logger = Logger.getLogger(FindMissingNumber.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[] {1, 2, 3, 5, 6}, 6);
         test("Test_2", new int[] {1, 2, 3, 4, 5, 7, 8}, 8);
         test("Test_3", new int[] {2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 11);

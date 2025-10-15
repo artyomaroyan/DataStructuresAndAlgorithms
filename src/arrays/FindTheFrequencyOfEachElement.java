@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class FindTheFrequencyOfEachElement {
     private static final Logger log = Logger.getLogger(FindTheFrequencyOfEachElement.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{-3, 3, -1, -1, 0, 1, -5, -4, -5, -2});
         test("Test_2", new int[]{1, 1, 0, 1, 1, 0, 3, -4, 1, 4, 0});
         test("Test_3", new int[]{-4, -2, 1, -2, 1, 4, 0, 1, 2, -3, -5, -5});

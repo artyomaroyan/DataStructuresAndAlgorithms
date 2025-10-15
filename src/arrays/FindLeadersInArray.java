@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class FindLeadersInArray {
     private static final Logger logger = Logger.getLogger(FindLeadersInArray.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", new int[]{16, 17, 4, 3, 5, 2});
         test("Test_2", new int[]{5, 90, 69, 9, 50, 27, 7, 34, 66});
         test("Test_3", new int[]{63, 19, 53, 28, 55, 13, 53, 6769, 5, 3, 4, 63, 81, 57, 39});

@@ -15,11 +15,11 @@ import java.util.logging.Logger;
  */
 public class FindSecondLargestElement {
     private static final Logger logger = Logger.getLogger(FindSecondLargestElement.class.getName());
-    public static void main(String[] args) {
+
+    static void main() {
         test("Test_1", new int[] {82, 74, 15, 5, 29, 100, 38, 18, 31, 98, 74, 80, 76, 92, 55, 63, 39, 50});
         test("Test_2", new int[] {69, 76, 54, 10, 28, 31, 64, 58, 22, 98, 60, 81, 67, 9, 8, 100, 8, 37, 97, 16, 22, 8, 58, 23, 87, 7, 9, 14});
         test("Test_3", new int[] {86, 50, 2, 40, 58, 43, 93, 86, 39, 96, 35, 76, 56, 94, 56, 51, 36, 88, 16, 0, 58, 33, 27, 35, 36, 93, 37, 43});
-
     }
 
     private static void test(String label, int[] array) {
