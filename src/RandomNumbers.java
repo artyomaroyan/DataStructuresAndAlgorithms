@@ -15,7 +15,7 @@ public class RandomNumbers {
     private static final Random RANDOM = new Random();
     private static final Logger logger = Logger.getLogger(RandomNumbers.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         generateRandomIntNumber();
         generateRandomDoubleNumber();
         randomDoubleNumbers();

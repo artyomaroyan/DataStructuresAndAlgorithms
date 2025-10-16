@@ -12,7 +12,7 @@ public class RandomString {
     private static final Logger log = Logger.getLogger(RandomString.class.getName());
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public static void main(String[] args) {
+    static void main() {
         String result = generateRandomString();
         log.info(() -> "Random String " + result);
     }
