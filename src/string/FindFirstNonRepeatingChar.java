@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindFirstNonRepeatingChar {
     private static final Logger log = Logger.getLogger(FindFirstNonRepeatingChar.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "swiss");
         test("Test_2", "level");
         test("Test_3", "aabbcc");

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class CheckStringsAreRotations {
     private static final Logger log = Logger.getLogger(CheckStringsAreRotations.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "listen", "silent");
         test("Test_2", "hello", "helol");
         test("Test_3", "abcd", "cdab");

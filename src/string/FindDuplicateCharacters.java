@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindDuplicateCharacters {
     private static final Logger logger = Logger.getLogger(FindDuplicateCharacters.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "klllasda");
         test("Test_2", "asdawer");
         test("Test_3", "vxcsdsd");

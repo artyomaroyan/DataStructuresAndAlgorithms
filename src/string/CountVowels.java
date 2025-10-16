@@ -14,7 +14,7 @@ public class CountVowels {
     private static final Logger logger = Logger.getLogger(CountVowels.class.getName());
     private static final Set<Character> VOWELS = Set.of('A', 'E', 'I', 'O', 'U');
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "hellOo");
         test("Test_2", "world");
         test("Test_3", "JAVA");

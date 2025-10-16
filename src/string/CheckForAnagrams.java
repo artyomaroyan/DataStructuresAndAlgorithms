@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class CheckForAnagrams {
     private static final Logger logger = Logger.getLogger(CheckForAnagrams.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "listen", "silent");
         test("Test_2", "evil", "vile");
         test("Test_3", "hello", "world");
