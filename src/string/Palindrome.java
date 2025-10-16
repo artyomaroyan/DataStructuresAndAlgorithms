@@ -10,7 +10,8 @@ import java.util.logging.Logger;
  */
 public class Palindrome {
     private static final Logger logger = Logger.getLogger(Palindrome.class.getName());
-    public static void main(String[] args) {
+
+    static void main() {
         test("Test_1", "madam");
         test("Test_2", "racecar");
         test("Test_3", "level");

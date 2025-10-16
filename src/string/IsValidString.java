@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class IsValidString {
     private static final Logger log = Logger.getLogger(IsValidString.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "abc", "def", "adbcef");
         test("Test_2", "abc", "def", "dabecf");
         test("Test_3", "xy", "12", "x1y2");

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class PrintAllDuplicatesInString {
     private static final Logger log = Logger.getLogger(PrintAllDuplicatesInString.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "cYnBkbVMTjPdmJT");
         test("Test_2", "JTkTKANNwMEfiij");
         test("Test_3", "PMjksQTaMyIFdOy");

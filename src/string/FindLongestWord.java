@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class FindLongestWord {
     private static final Logger log = Logger.getLogger(FindLongestWord.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "I love programming in Java");
         test("Test_2", "After three hours of debugging, the error was simply a missing semicolon.");
         test("Test_3", "She refactored the entire module just to make the variable names more poetic.");

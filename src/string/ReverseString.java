@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class ReverseString {
     private static final Logger logger = Logger.getLogger(ReverseString.class.getName());
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "asdad");
         test("Test_2", "reyrt");
         test("Test_3", "sfsdkm");

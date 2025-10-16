@@ -13,7 +13,7 @@ public class RemoveAllVowels {
     private static final Logger log = Logger.getLogger(RemoveAllVowels.class.getName());
     private static final String[] VOWELS = {"A", "E", "I", "O", "U"};
 
-    public static void main(String[] args) {
+    static void main() {
         test("Test_1", "listen");
         test("Test_2", "evil");
         test("Test_3", "hello");
