@@ -1,5 +1,7 @@
 package string;
 
+import java.util.regex.Pattern;
+
 /**
  * Author: Artyom Aroyan
  * Date: 05.10.25
@@ -30,7 +32,10 @@ public class CapitalizeFirstLetter {
     }
 
     private static String capitalizeFirstLetterSplit(String str) {
-        String[] strings = str.trim().split(" ");
+        if (str == null || str.trim().isEmpty()) return null;
+
+        String[] strings = str.trim().split("\\s+");
+
         for (int i = 0; i < strings.length; i++) {
             if (!strings[i].isEmpty()) {
                 strings[i] = strings[i].substring(0, 1).toUpperCase() +
@@ -41,18 +46,75 @@ public class CapitalizeFirstLetter {
     }
 
     private static String capitalizeFirstLetterCharacterScanning(String str) {
-        return null;
+        if (str == null || str.trim().isEmpty()) return null;
+
+        StringBuilder result = new StringBuilder();
+        boolean stratOfWord = true;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isWhitespace(ch)) {
+                result.append(ch);
+                stratOfWord = true;
+            } else {
+                if (stratOfWord) {
+                    result.append(Character.toUpperCase(ch));
+                    stratOfWord = false;
+                } else {
+                    result.append(Character.toLowerCase(ch));
+                }
+            }
+        }
+        return result.toString().trim();
     }
 
     private static String capitalizeFirstLetterStringBuilder(String str) {
-        return null;
+        if (str == null || str.trim().isEmpty()) return null;
+
+        String[] words = str.trim().split("\\s+");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                result.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1).toLowerCase())
+                        .append(" ");
+            }
+        }
+        return result.toString().trim();
     }
 
     private static String capitalizeFirstLetterRegex(String str) {
-        return null;
+        if (str == null || str.trim().isEmpty()) return null;
+
+        return Pattern.compile("\\b[a-z]")
+                .matcher(str.toLowerCase())
+                .replaceAll(m -> m.group().toUpperCase())
+                .trim();
     }
 
     private static String capitalizeFirstLetterStreams(String str) {
-        return null;
+        if (str == null || str.trim().isEmpty()) return null;
+
+        StringBuilder result = new StringBuilder();
+        final boolean[] startOfWord = {true};
+
+        str.chars().forEach(ch -> {
+            char c = (char) ch;
+            if (Character.isWhitespace(c)) {
+                result.append(c);
+                startOfWord[0] = true;
+
+            } else {
+                if (startOfWord[0]) {
+                    result.append(Character.toUpperCase(c));
+                    startOfWord[0] = false;
+
+                } else {
+                    result.append(Character.toLowerCase(c));
+                }
+            }
+        });
+        return result.toString().trim();
     }
 }
