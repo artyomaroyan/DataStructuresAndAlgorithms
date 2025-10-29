@@ -10,18 +10,11 @@ package linkedlist;
 public class SinglyLinkedList {
     static void main() {
         getIterativeLinkedList();
-
-        RecursiveLinkedList recursiveLinkedList = getRecursiveLinkedList();
-        IO.println(recursiveLinkedList.delete(878));
-        IO.println(recursiveLinkedList.delete(1));
-
-        IO.println(recursiveLinkedList.contains(1212));
-        IO.println(recursiveLinkedList.contains(781));
-
+        getRecursiveLinkedList();
         getGenericLinkedList();
     }
 
-    private static IterativeLinkedList getIterativeLinkedList() {
+    private static void getIterativeLinkedList() {
         IterativeLinkedList iterativeLinkedList = new IterativeLinkedList();
 
         iterativeLinkedList.add(43);
@@ -46,10 +39,9 @@ public class SinglyLinkedList {
 
         IO.println(iterativeLinkedList.contains(13232));
         IO.println(iterativeLinkedList.contains(12));
-        return iterativeLinkedList;
     }
 
-    private static RecursiveLinkedList getRecursiveLinkedList() {
+    private static void getRecursiveLinkedList() {
         RecursiveLinkedList recursiveLinkedList = new RecursiveLinkedList();
 
         recursiveLinkedList.add(4243);
@@ -67,7 +59,12 @@ public class SinglyLinkedList {
 
         recursiveLinkedList.reverse();
         recursiveLinkedList.display();
-        return recursiveLinkedList;
+
+        IO.println(recursiveLinkedList.delete(878));
+        IO.println(recursiveLinkedList.delete(1));
+
+        IO.println(recursiveLinkedList.contains(1212));
+        IO.println(recursiveLinkedList.contains(781));
     }
 
     private static void getGenericLinkedList() {
