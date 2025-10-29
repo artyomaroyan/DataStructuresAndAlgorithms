@@ -9,9 +9,7 @@ package linkedlist;
  */
 public class SinglyLinkedList {
     static void main() {
-        IterativeLinkedList iterativeLinkedList = getIterativeLinkedList();
-        IO.println(iterativeLinkedList.contains(13232));
-        IO.println(iterativeLinkedList.contains(12));
+        getIterativeLinkedList();
 
         RecursiveLinkedList recursiveLinkedList = getRecursiveLinkedList();
         IO.println(recursiveLinkedList.delete(878));
@@ -45,6 +43,9 @@ public class SinglyLinkedList {
 
         iterativeLinkedList.reverse();
         iterativeLinkedList.display();
+
+        IO.println(iterativeLinkedList.contains(13232));
+        IO.println(iterativeLinkedList.contains(12));
         return iterativeLinkedList;
     }
 
