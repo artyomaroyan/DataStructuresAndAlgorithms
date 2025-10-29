@@ -76,9 +76,14 @@ public class SinglyLinkedList {
         genericLinkedList.display();
 
         genericLinkedList.addFirst(6546);
+        genericLinkedList.addFirst(8791);
         genericLinkedList.display();
 
         genericLinkedList.addLast(900);
+        genericLinkedList.addLast(11);
+        genericLinkedList.display();
+
+        genericLinkedList.reverse();
         genericLinkedList.display();
 
         IO.println(genericLinkedList.delete(12));
