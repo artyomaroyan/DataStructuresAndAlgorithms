@@ -9,7 +9,23 @@ package linkedlist;
  */
 public class SinglyLinkedList {
     static void main() {
+        IterativeLinkedList iterativeLinkedList = getIterativeLinkedList();
+        IO.println(iterativeLinkedList.contains(13232));
+        IO.println(iterativeLinkedList.contains(12));
+
+        RecursiveLinkedList recursiveLinkedList = getRecursiveLinkedList();
+        IO.println(recursiveLinkedList.delete(878));
+        IO.println(recursiveLinkedList.delete(1));
+
+        IO.println(recursiveLinkedList.contains(1212));
+        IO.println(recursiveLinkedList.contains(781));
+
+        getGenericLinkedList();
+    }
+
+    private static IterativeLinkedList getIterativeLinkedList() {
         IterativeLinkedList iterativeLinkedList = new IterativeLinkedList();
+
         iterativeLinkedList.add(43);
         iterativeLinkedList.add(1);
         iterativeLinkedList.add(90);
@@ -27,20 +43,9 @@ public class SinglyLinkedList {
         iterativeLinkedList.display();
         IO.println();
 
-        IO.println(iterativeLinkedList.contains(13232));
-        IO.println(iterativeLinkedList.contains(12));
-
         iterativeLinkedList.reverse();
         iterativeLinkedList.display();
-
-        RecursiveLinkedList recursiveLinkedList = getRecursiveLinkedList();
-
-        IO.println(recursiveLinkedList.delete(878));
-        IO.println(recursiveLinkedList.delete(1));
-
-        IO.println(recursiveLinkedList.contains(1212));
-        IO.println(recursiveLinkedList.contains(781));
-
+        return iterativeLinkedList;
     }
 
     private static RecursiveLinkedList getRecursiveLinkedList() {
@@ -62,6 +67,28 @@ public class SinglyLinkedList {
         recursiveLinkedList.reverse();
         recursiveLinkedList.display();
         return recursiveLinkedList;
+    }
+
+    private static void getGenericLinkedList() {
+        GenericLinkedList<Integer> genericLinkedList = new GenericLinkedList<>();
+
+        genericLinkedList.add(3413);
+        genericLinkedList.add(112);
+        genericLinkedList.add(7897);
+        genericLinkedList.display();
+
+        genericLinkedList.addFirst(6546);
+        genericLinkedList.display();
+
+        genericLinkedList.addLast(900);
+        genericLinkedList.display();
+
+        IO.println(genericLinkedList.delete(12));
+        IO.println(genericLinkedList.delete(6546));
+
+        IO.println(genericLinkedList.contains(8));
+        IO.println(genericLinkedList.contains(900));
+
     }
 }
 
@@ -258,5 +285,107 @@ class RecursiveLinkedList {
         node.next.next = node;
         node.next = null;
         return newHead;
+    }
+}
+
+class GenericLinkedList<E> {
+    private Node<E> head;
+    private int size;
+
+    public int getSize() {
+        return size;
+    }
+
+    private static class Node<E> {
+        E element;
+        Node<E> next;
+
+        Node(E e) {
+            this.element = e;
+        }
+    }
+
+    void add(E e) {
+        final Node<E> newNode = new Node<>(e);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node<E> current = head;
+        while (current.next != null) current = current.next;
+        current.next = newNode;
+    }
+
+    void addFirst(E e) {
+        final Node<E> newNode = new Node<>(e);
+        newNode.next = head;
+        head = newNode;
+        size++;
+    }
+
+    void addLast(E e) {
+        final Node<E> newNode = new Node<>(e);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node<E> current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        size++;
+    }
+
+    boolean delete(E e) {
+        if (head == null) return false;
+
+        if (head.element.equals(e)) {
+            head = head.next;
+            size--;
+            return true;
+        }
+        Node<E> current = head;
+        while (current.next != null) {
+            if (current.next.element.equals(e)) {
+                current.next = current.next.next;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    boolean contains(E e) {
+        Node<E> current = head;
+        while (current != null) {
+            if (current.element == e) return true;
+            current = current.next;
+        }
+        return false;
+    }
+
+    void display() {
+        Node<E> current = head;
+        while (current != null) {
+            IO.print(current.element + " -> ");
+            current = current.next;
+        }
+        IO.println("null");
+    }
+
+    void reverse() {
+        Node<E> previous = null;
+        Node<E> current = head;
+        Node<E> next;
+
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        head = previous;
     }
 }
