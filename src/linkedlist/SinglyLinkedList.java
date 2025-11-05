@@ -392,3 +392,29 @@ class GenericLinkedList<E> {
         head = previous;
     }
 }
+
+class ImmutableLinkedList {
+    private final Node head;
+    private final int size;
+
+    private ImmutableLinkedList(Node head, int size) {
+        this.head = head;
+        this.size = size;
+    }
+
+    public ImmutableLinkedList() {
+        this(null, 0);
+    }
+
+    private static class Node {
+        final int data;
+        final Node next;
+
+        private Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
+        }
+    }
+
+
+}
