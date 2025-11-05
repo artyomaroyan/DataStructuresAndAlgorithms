@@ -4,4 +4,5 @@
  * Time: 23:46:27
  */
 void main() {
+//    LinkedList<String> linkedList = new LinkedList<>();
 }
