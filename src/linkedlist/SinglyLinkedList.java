@@ -392,27 +392,12 @@ class GenericLinkedList<E> {
     }
 }
 
-class ImmutableLinkedList {
-    private final Node head;
-    private final int size;
-
-    private ImmutableLinkedList(Node head, int size) {
-        this.head = head;
-        this.size = size;
-    }
-
+record ImmutableLinkedList(Node head, int size) {
     public ImmutableLinkedList() {
         this(null, 0);
     }
 
-    private static class Node {
-        final int data;
-        final Node next;
-
-        private Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
+    private record Node(int data, Node next) {
     }
 
     ImmutableLinkedList addFirst(int data) {
@@ -422,7 +407,6 @@ class ImmutableLinkedList {
 
     ImmutableLinkedList addLast(int data) {
         if (head == null) return new ImmutableLinkedList(new Node(data, null), 1);
-
         final Node newHead = copyAndAddLast(head, data);
         return new ImmutableLinkedList(newHead, size + 1);
     }
@@ -459,7 +443,6 @@ class ImmutableLinkedList {
     private Node reverseNode(Node node) {
         Node newHead = null;
         Node current = node;
-
         while (current != null) {
             newHead = new Node(current.data, newHead);
             current = current.next;
