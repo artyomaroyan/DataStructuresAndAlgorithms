@@ -16,7 +16,6 @@ public class SinglyLinkedList {
 
     private static void getIterativeLinkedList() {
         IterativeLinkedList iterativeLinkedList = new IterativeLinkedList();
-
         iterativeLinkedList.add(43);
         iterativeLinkedList.add(1);
         iterativeLinkedList.add(90);
@@ -24,74 +23,56 @@ public class SinglyLinkedList {
         iterativeLinkedList.addFirst(132);
         iterativeLinkedList.addLast(64);
         iterativeLinkedList.addLast(987);
-
         iterativeLinkedList.display();
         IO.println();
-
         iterativeLinkedList.delete(64);
         iterativeLinkedList.delete(64552);
-
         iterativeLinkedList.display();
         IO.println();
-
         iterativeLinkedList.reverse();
         iterativeLinkedList.display();
-
         IO.println(iterativeLinkedList.contains(13232));
         IO.println(iterativeLinkedList.contains(12));
     }
 
     private static void getRecursiveLinkedList() {
         RecursiveLinkedList recursiveLinkedList = new RecursiveLinkedList();
-
         recursiveLinkedList.add(4243);
         recursiveLinkedList.add(798);
         recursiveLinkedList.add(31);
         recursiveLinkedList.display();
-
         recursiveLinkedList.addFirst(324);
         recursiveLinkedList.addFirst(878);
         recursiveLinkedList.display();
-
         recursiveLinkedList.addLast(5675);
         recursiveLinkedList.addLast(781);
         recursiveLinkedList.display();
-
         recursiveLinkedList.reverse();
         recursiveLinkedList.display();
-
         IO.println(recursiveLinkedList.delete(878));
         IO.println(recursiveLinkedList.delete(1));
-
         IO.println(recursiveLinkedList.contains(1212));
         IO.println(recursiveLinkedList.contains(781));
     }
 
     private static void getGenericLinkedList() {
         GenericLinkedList<Integer> genericLinkedList = new GenericLinkedList<>();
-
         genericLinkedList.add(3413);
         genericLinkedList.add(112);
         genericLinkedList.add(7897);
         genericLinkedList.display();
-
         genericLinkedList.addFirst(6546);
         genericLinkedList.addFirst(8791);
         genericLinkedList.display();
-
         genericLinkedList.addLast(900);
         genericLinkedList.addLast(11);
         genericLinkedList.display();
-
         genericLinkedList.reverse();
         genericLinkedList.display();
-
         IO.println(genericLinkedList.delete(12));
         IO.println(genericLinkedList.delete(6546));
-
         IO.println(genericLinkedList.contains(8));
         IO.println(genericLinkedList.contains(900));
-
     }
 }
 
@@ -142,13 +123,11 @@ class IterativeLinkedList {
 
     void delete(int data) {
         if (head == null) return;
-
         if (head.data == data) {
             head = head.next;
             size--;
             return;
         }
-
         Node current = head;
         while (current.next != null) {
             if (current.next.data == data) {
@@ -182,7 +161,6 @@ class IterativeLinkedList {
         Node previous = null;
         Node current = head;
         Node next;
-
         while (current != null) {
             next = current.next;
             current.next = previous;
@@ -342,7 +320,6 @@ class GenericLinkedList<E> {
 
     boolean delete(E e) {
         if (head == null) return false;
-
         if (head.element.equals(e)) {
             head = head.next;
             size--;
@@ -382,7 +359,6 @@ class GenericLinkedList<E> {
         Node<E> previous = null;
         Node<E> current = head;
         Node<E> next;
-
         while (current != null) {
             next = current.next;
             current.next = previous;
@@ -416,5 +392,66 @@ class ImmutableLinkedList {
         }
     }
 
+    ImmutableLinkedList addFirst(int data) {
+        final Node newHead = new Node(data, head);
+        return new ImmutableLinkedList(newHead, size + 1);
+    }
 
+    ImmutableLinkedList addLast(int data) {
+        if (head == null) return new ImmutableLinkedList(new Node(data, null), 1);
+
+        final Node newHead = copyAndAddLast(head, data);
+        return new ImmutableLinkedList(newHead, size + 1);
+    }
+
+    ImmutableLinkedList delete(int data) {
+        final Node newHead = deleteNode(head, data);
+        int newSize = (newHead == head) ? size : size - 1;
+        return new ImmutableLinkedList(newHead, newSize);
+    }
+
+    boolean contains(int data) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == data) return true;
+            current = current.next;
+        }
+        return false;
+    }
+
+    void display() {
+        Node current = head;
+        while (current != null) {
+            IO.println(current.data + " -> ");
+            current = current.next;
+        }
+        IO.println("null");
+    }
+
+    ImmutableLinkedList reverse() {
+        Node newHead = reverseNode(head);
+        return new ImmutableLinkedList(newHead, size);
+    }
+
+    private Node reverseNode(Node node) {
+        Node newHead = null;
+        Node current = node;
+
+        while (current != null) {
+            newHead = new Node(current.data, newHead);
+            current = current.next;
+        }
+        return newHead;
+    }
+
+    private Node deleteNode(Node node, int data) {
+        if (node == null) return null;
+        if (node.data == data) return node.next;
+        return new Node(node.data, deleteNode(node.next, data));
+    }
+
+    private Node copyAndAddLast(Node head, int data) {
+        if (head == null) return new Node(data, null);
+        else return new Node(head.data, copyAndAddLast(head.next, data));
+    }
 }
