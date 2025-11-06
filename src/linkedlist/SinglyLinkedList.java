@@ -12,6 +12,7 @@ public class SinglyLinkedList {
         getIterativeLinkedList();
         getRecursiveLinkedList();
         getGenericLinkedList();
+        getImmutableLinkedList();
     }
 
     private static void getIterativeLinkedList() {
@@ -73,6 +74,28 @@ public class SinglyLinkedList {
         IO.println(genericLinkedList.delete(6546));
         IO.println(genericLinkedList.contains(8));
         IO.println(genericLinkedList.contains(900));
+    }
+
+    public static void getImmutableLinkedList() {
+        ImmutableLinkedList immutableLinkedList = new ImmutableLinkedList();
+        IO.println(immutableLinkedList.addFirst(1231));
+        IO.println(immutableLinkedList.addFirst(9091));
+        IO.println(immutableLinkedList.addFirst(989821));
+        immutableLinkedList.display();
+
+        IO.println(immutableLinkedList.addLast(123));
+        IO.println(immutableLinkedList.addLast(12387));
+        IO.println(immutableLinkedList.addLast(4565123));
+        immutableLinkedList.display();
+
+        IO.println(immutableLinkedList.contains(3123));
+        IO.println(immutableLinkedList.contains(123));
+
+        IO.println(immutableLinkedList.reverse());
+        immutableLinkedList.display();
+
+        IO.println(immutableLinkedList.delete(3123));
+        IO.println(immutableLinkedList.delete(98342));
     }
 }
 
