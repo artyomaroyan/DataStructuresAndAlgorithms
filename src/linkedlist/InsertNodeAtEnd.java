@@ -8,4 +8,6 @@ package linkedlist;
  * Insert a node at end.
  */
 public class InsertNodeAtEnd {
+    static void main() {
+    }
 }
