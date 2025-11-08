@@ -9,5 +9,10 @@ package linkedlist;
  */
 public class InsertNodeAtEnd {
     static void main() {
+        GenericLinkedList<Integer> linkedList = new GenericLinkedList<>();
+        linkedList.addLast(123);
+        linkedList.addLast(98);
+        linkedList.addLast(873);
+        linkedList.display();
     }
 }
