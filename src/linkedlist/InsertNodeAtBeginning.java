@@ -8,4 +8,6 @@ package linkedlist;
  * Insert a node at beginning.
  */
 public class InsertNodeAtBeginning {
+    static void main() {
+    }
 }
