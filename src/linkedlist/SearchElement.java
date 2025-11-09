@@ -9,6 +9,13 @@ package linkedlist;
  */
 public class SearchElement {
     static void main() {
+        GenericLinkedList<Integer> linkedList = new GenericLinkedList<>();
+        linkedList.add(45345);
+        linkedList.add(9892);
+        linkedList.add(9092348);
+        linkedList.display();
 
+        IO.println(linkedList.contains(213131));
+        IO.println(linkedList.contains(9892));
     }
 }
