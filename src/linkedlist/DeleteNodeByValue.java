@@ -8,4 +8,7 @@ package linkedlist;
  * Delete a node by value.
  */
 public class DeleteNodeByValue {
+    static void main() {
+
+    }
 }
