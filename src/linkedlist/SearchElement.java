@@ -8,4 +8,7 @@ package linkedlist;
  * Search an element in linked list.
  */
 public class SearchElement {
+    static void main() {
+
+    }
 }
