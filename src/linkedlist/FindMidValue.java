@@ -1,18 +1,14 @@
 package linkedlist;
 
-import java.util.logging.Logger;
-
 /**
  * Author: Artyom Aroyan
  * Date: 03.09.25
  * Time: 21:51:39
- * find middle value of one way linkedlist without knowing it's length.
+ * Task007
+ * Find middle of linked list.
  */
 public class FindMidValue {
-    private static final Logger logger = Logger.getLogger(FindMidValue.class.getName());
-
-    public static void main(String[] args) {
-
+    static void main() {
     }
 
     private static int findMiddleValue(Node head) {
@@ -23,6 +19,7 @@ public class FindMidValue {
             slow = slow.next;
             fast = fast.next.next;
         }
+        assert slow != null;
         return slow.data;
     }
 
