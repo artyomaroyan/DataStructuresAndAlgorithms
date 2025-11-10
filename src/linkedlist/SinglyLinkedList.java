@@ -363,7 +363,7 @@ class GenericLinkedList<E> {
     boolean contains(E e) {
         Node<E> current = head;
         while (current != null) {
-            if (current.element == e) return true;
+            if (current.element.equals(e)) return true;
             current = current.next;
         }
         return false;
