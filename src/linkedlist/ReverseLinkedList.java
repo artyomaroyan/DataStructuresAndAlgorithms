@@ -8,4 +8,6 @@ package linkedlist;
  * Reverse a linked list.
  */
 public class ReverseLinkedList {
+    static void main() {
+    }
 }
