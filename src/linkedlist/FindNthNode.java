@@ -8,4 +8,6 @@ package linkedlist;
  * Find nth node from end.
  */
 public class FindNthNode {
+    static void main() {
+    }
 }
