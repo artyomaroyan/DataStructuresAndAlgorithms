@@ -8,4 +8,6 @@ package linkedlist;
  * Detect loop in a linked list.
  */
 public class DetectLoop {
+    static void main() {
+    }
 }
