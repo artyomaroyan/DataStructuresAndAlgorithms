@@ -1,7 +1,5 @@
 package linkedlist;
 
-import java.util.logging.Logger;
-
 /**
  * Author: Artyom Aroyan
  * Date: 11.10.25
@@ -10,4 +8,6 @@ import java.util.logging.Logger;
  * Remove duplicates from a sorted linked list.
  */
 public class RemoveDuplicates {
+    static void main() {
+    }
 }
