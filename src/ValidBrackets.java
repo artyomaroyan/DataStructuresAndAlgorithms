@@ -4,10 +4,10 @@
  * Time: 23:30:12
  */
 void main() {
-    Scanner scanner = new Scanner(System.in);
-    IO.println("input");
-    String input = scanner.nextLine();
-    IO.println(Solution.areValidBrackets(input));
+//    Scanner scanner = new Scanner(System.in);
+//    IO.println("input");
+//    String input = scanner.nextLine();
+//    IO.println(Solutiown.areValidBrackets(input));
 }
 
 /*
@@ -134,6 +134,7 @@ static class Solution {
 }
  */
 
+/*
 static class Solution {
     static boolean areValidBrackets(String input) {
         input = input.replaceAll("[^\\(\\)\\{\\}\\[\\]]", "");
@@ -161,3 +162,4 @@ static class Solution {
         }
     }
 }
+ */
