@@ -110,6 +110,7 @@ static class Solution {
 }
  */
 
+/*
 static class Solution {
     static boolean areValidBrackets(String input) {
         char[] stack = new char[input.length()];
@@ -129,5 +130,34 @@ static class Solution {
             }
         }
         return top == -1;
+    }
+}
+ */
+
+static class Solution {
+    static boolean areValidBrackets(String input) {
+        input = input.replaceAll("[^\\(\\)\\{\\}\\[\\]]", "");
+        return isValid(input, 0, new StringBuilder());
+    }
+
+    private static boolean isValid(String str, int index, StringBuilder stack) {
+        if (index == str.length()) {
+            return stack.isEmpty();
+        }
+
+        char ch = str.charAt(index);
+        if (ch == '(' || ch == '{' || ch == '[') {
+            stack.append(ch);
+            return isValid(str, index + 1, stack);
+
+        } else {
+            if (stack.isEmpty()) return false;
+            char last = stack.charAt(stack.length() - 1);
+            if ((ch == ')' && last != '(') || (ch == '}' && last != '{') || (ch == ']' && last != '[')) {
+                return false;
+            }
+            stack.deleteCharAt(stack.length() - 1);
+            return isValid(str, index + 1, stack);
+        }
     }
 }
