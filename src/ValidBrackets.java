@@ -7,7 +7,7 @@ void main() {
     Scanner scanner = new Scanner(System.in);
     IO.println("input");
     String input = scanner.nextLine();
-    IO.println(Solution.areValidBracketsAlternative(input));
+    IO.println(Solution.areValidBrackets(input));
 }
 
 /*
@@ -34,6 +34,7 @@ static class Solution {
 }
  */
 
+/*
 // fixed version of my solution.
 static class Solution {
     private static final String[] VALID_BRACKETS = {"()", "{}", "[]"};
@@ -81,5 +82,28 @@ static class Solution {
             }
         } while (!previous.equals(current));
         return current.isEmpty();
+    }
+}
+ */
+
+static class Solution {
+    static boolean areValidBrackets(String input) {
+        Map<Character, Character> map = Map.of(
+                ')', '(',
+                '}', '{',
+                ']', '['
+        );
+
+        Stack<Character> stack = new Stack<>();
+        for (char ch : input.toCharArray()) {
+            if (map.containsValue(ch)) {
+                stack.push(ch);
+            } else if (map.containsKey(ch)) {
+                if (stack.isEmpty() || stack.pop() != stack.get(ch)) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
