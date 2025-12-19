@@ -86,6 +86,7 @@ static class Solution {
 }
  */
 
+/*
 static class Solution {
     static boolean areValidBrackets(String input) {
         Map<Character, Character> map = Map.of(
@@ -105,5 +106,28 @@ static class Solution {
             }
         }
         return stack.isEmpty();
+    }
+}
+ */
+
+static class Solution {
+    static boolean areValidBrackets(String input) {
+        char[] stack = new char[input.length()];
+        int top = -1;
+
+        for (char ch : input.toCharArray()) {
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack[++top] = ch;
+
+            } else if (ch == ')' || ch == '}' || ch == ']') {
+                if (top == -1) return false;
+
+                char opening = stack[top--];
+                if ((ch == ')' && opening != '(') || (ch == '}' && opening != '{') || (ch == ']' && opening != '[')) {
+                    return false;
+                }
+            }
+        }
+        return top == -1;
     }
 }
