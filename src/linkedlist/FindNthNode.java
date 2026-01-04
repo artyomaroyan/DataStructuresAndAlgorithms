@@ -13,7 +13,7 @@ public class FindNthNode {
     }
 
     // Two Pointer Approach
-    private static Node<?> findNthFromEnd(Node<?> head, int n) {
+    private static Node<?> findNthFromEndTwoPointer(Node<?> head, int n) {
         if (head == null || n <= 0) return null;
 
         Node<?> first = head;
@@ -29,6 +29,28 @@ public class FindNthNode {
             second = second.next;
         }
         return second;
+    }
+
+    // Length Calculation Approach
+
+    private static Node<?> findNthFromEndLengthCalculation(Node<?> head, int n) {
+        if (head == null || n <= 0) return null;
+
+        int length = 0;
+        Node<?> current = head;
+        while (current != null) {
+            length++;
+            current = current.next;
+        }
+
+        if (n > length) return null;
+
+        int targetPosition = length - n;
+        current = head;
+        for (int i = 0; i < targetPosition; i++) {
+            current = current.next;
+        }
+        return current;
     }
 
     private static final class Node<E> {
