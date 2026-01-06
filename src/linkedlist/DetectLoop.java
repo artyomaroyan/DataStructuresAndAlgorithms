@@ -10,4 +10,5 @@ package linkedlist;
 public class DetectLoop {
     static void main() {
     }
+
 }
