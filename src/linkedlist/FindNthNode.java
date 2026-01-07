@@ -1,7 +1,5 @@
 package linkedlist;
 
-import java.util.LinkedList;
-
 /**
  * Author: Artyom Aroyan
  * Date: 10.10.25
@@ -11,15 +9,23 @@ import java.util.LinkedList;
  */
 public class FindNthNode {
     static void main() {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(323);
-        linkedList.add(54);
-        linkedList.add(456);
-        linkedList.add(31);
-        linkedList.add(932);
-        linkedList.add(90);
-        linkedList.add(942);
-        linkedList.add(123);
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(9123);
+        linkedList.add(8109);
+        linkedList.add(1234);
+        linkedList.add(34612);
+        linkedList.add(12);
+        linkedList.add(4835);
+        linkedList.add(71291);
+        linkedList.add(92130);
+        Node<?> twoPointerElement1 = findNthFromEndTwoPointer(linkedList.head, 5);
+        Node<?> twoPointerElement2 = findNthFromEndTwoPointer(linkedList.head, 8);
+        IO.println(twoPointerElement1.element);
+        IO.println(twoPointerElement2.element);
+        Node<?> lengthCalculationElement1 = findNthFromEndLengthCalculation(linkedList.head, 2);
+        Node<?> lengthCalculationElement2 = findNthFromEndLengthCalculation(linkedList.head, 3);
+        IO.println(lengthCalculationElement1.element);
+        IO.println(lengthCalculationElement2.element);
     }
 
     // Two Pointer Approach
@@ -42,7 +48,6 @@ public class FindNthNode {
     }
 
     // Length Calculation Approach
-
     private static Node<?> findNthFromEndLengthCalculation(Node<?> head, int n) {
         if (head == null || n <= 0) return null;
 
