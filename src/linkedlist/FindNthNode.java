@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.LinkedList;
+
 /**
  * Author: Artyom Aroyan
  * Date: 10.10.25
@@ -9,7 +11,15 @@ package linkedlist;
  */
 public class FindNthNode {
     static void main() {
-
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(323);
+        linkedList.add(54);
+        linkedList.add(456);
+        linkedList.add(31);
+        linkedList.add(932);
+        linkedList.add(90);
+        linkedList.add(942);
+        linkedList.add(123);
     }
 
     // Two Pointer Approach
@@ -53,13 +63,31 @@ public class FindNthNode {
         return current;
     }
 
+    private static final class CustomLinkedList<E> {
+        Node<E> head;
+
+        void add(E e) {
+            Node<E> newNode = new Node<>(e);
+            if (head == null) {
+                head = newNode;
+                return;
+            }
+
+            Node<E> current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
     private static final class Node<E> {
         E element;
         Node<E> next;
 
-        Node(E element, Node<E> next) {
+        Node(E element) {
             this.element = element;
-            this.next = next;
+            this.next = null;
         }
     }
 }
