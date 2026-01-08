@@ -28,6 +28,24 @@ public class RemoveDuplicates {
         return current;
     }
 
+    private static final class CustomLinkedList<E> {
+        Node<E> head;
+
+        void add(E e) {
+            Node<E> newNode = new Node<>(e);
+            if (head == null) {
+                head = newNode;
+                return;
+            }
+
+            Node<E> current = head;
+            while (current.next != null) {
+                current = (Node<E>) current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
     private static final class Node<E> {
         E element;
         Node<?> next;
