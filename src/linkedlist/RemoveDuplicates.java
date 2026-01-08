@@ -9,6 +9,20 @@ package linkedlist;
  */
 public class RemoveDuplicates {
     static void main() {
+        CustomLinkedList<Integer> linkedList = new CustomLinkedList<>();
+        linkedList.add(712);
+        linkedList.add(324);
+        linkedList.add(3465);
+        linkedList.add(1234);
+        linkedList.add(4534);
+        linkedList.add(4534);
+        linkedList.add(91029);
+        linkedList.add(2345);
+        linkedList.add(5345);
+        linkedList.add(421);
+
+        Node<?> result = removeDuplicatesIterative(linkedList.head);
+        IO.println(result.element);
     }
 
     // Iterative Approach
