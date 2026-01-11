@@ -20,30 +20,33 @@ public class RemoveDuplicates {
         linkedList.add(2345);
         linkedList.add(5345);
         linkedList.add(421);
+        linkedList.add(421);
 
-        Node<?> result = removeDuplicatesIterative(linkedList.head);
-        IO.println(result.element);
+        IO.println(linkedList.getSize());
+//        Node<?> result = removeDuplicatesIterative(linkedList.head);
+//        IO.println(result);
     }
 
     // Iterative Approach
-    private static Node<?> removeDuplicatesIterative(Node<?> head) {
+    private static <T> Node<T> removeDuplicatesIterative(Node<T> head) {
         if (head == null || head.next == null) {
             return head;
         }
 
-        Node<?> current = head;
-        while (current != null && current.next != null) {
+        Node<T> current = head;
+        while (current.next != null) {
             if (current.element == current.next.element) {
                 current.next = current.next.next;
             } else {
                 current = current.next;
             }
         }
-        return current;
+        return head;
     }
 
     private static final class CustomLinkedList<E> {
         Node<E> head;
+        transient int size = 0;
 
         void add(E e) {
             Node<E> newNode = new Node<>(e);
@@ -54,15 +57,20 @@ public class RemoveDuplicates {
 
             Node<E> current = head;
             while (current.next != null) {
-                current = (Node<E>) current.next;
+                current = current.next;
             }
             current.next = newNode;
+            size++;
+        }
+
+        int getSize() {
+            return size;
         }
     }
 
     private static final class Node<E> {
         E element;
-        Node<?> next;
+        Node<E> next;
 
         Node(E element) {
             this.element = element;
