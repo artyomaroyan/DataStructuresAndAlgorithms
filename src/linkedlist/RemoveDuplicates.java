@@ -31,13 +31,27 @@ public class RemoveDuplicates {
         }
         IO.println("size before remove " + linkedList.getSize() + "\n");
 
-        removeDuplicatesIterative(linkedList);
+        removeDuplicatesRecursive(linkedList);
 
         IO.println("after remove");
         for (Integer element : linkedList) {
             IO.println(element);
         }
         IO.println("size after remove " + linkedList.getSize());
+
+//        IO.println("before remove");
+//        for (Integer element : linkedList) {
+//            IO.println(element);
+//        }
+//        IO.println("size before remove " + linkedList.getSize() + "\n");
+//
+//        removeDuplicatesIterative(linkedList);
+//
+//        IO.println("after remove");
+//        for (Integer element : linkedList) {
+//            IO.println(element);
+//        }
+//        IO.println("size after remove " + linkedList.getSize());
     }
 
     // Iterative Approach
@@ -59,6 +73,20 @@ public class RemoveDuplicates {
             }
             current = current.next;
         }
+    }
+
+    // Recursive Approach
+    private static <T> Node<T> removeDuplicatesRecursive(CustomLinkedList<T> list) {
+        if (list.head == null || list.head.next == null) {
+            return null;
+        }
+
+        removeDuplicatesRecursive(list);
+
+        if (list.head.element.equals(list.head.next.element)) {
+            return list.head.next;
+        }
+        return list.head;
     }
 
     private static final class CustomLinkedList<E> implements Iterable<E> {
