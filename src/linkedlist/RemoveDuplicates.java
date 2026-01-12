@@ -1,5 +1,8 @@
 package linkedlist;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Author: Artyom Aroyan
  * Date: 11.10.25
@@ -22,15 +25,23 @@ public class RemoveDuplicates {
         linkedList.add(421);
         linkedList.add(421);
 
-        IO.println(linkedList.getSize());
-//        Node<?> result = removeDuplicatesIterative(linkedList.head);
-//        IO.println(result);
+        IO.println("before remove");
+        for (int i = 0; i < linkedList.size; i++) {
+            IO.println(linkedList.head);
+        }
+
+        removeDuplicatesIterative(linkedList);
+
+        IO.println("after remove");
+        for (int i = 0; i < linkedList.getSize(); i++) {
+            IO.println(linkedList.head);
+        }
     }
 
     // Iterative Approach
-    private static <T> Node<T> removeDuplicatesIterative(Node<T> head) {
+    private static <T> void removeDuplicatesIterative(CustomLinkedList<T> head) {
         if (head == null || head.next == null) {
-            return head;
+            return;
         }
 
         Node<T> current = head;
@@ -41,10 +52,9 @@ public class RemoveDuplicates {
                 current = current.next;
             }
         }
-        return head;
     }
 
-    private static final class CustomLinkedList<E> {
+    private static final class CustomLinkedList<E> implements Iterable<E> {
         Node<E> head;
         transient int size = 0;
 
@@ -52,19 +62,40 @@ public class RemoveDuplicates {
             Node<E> newNode = new Node<>(e);
             if (head == null) {
                 head = newNode;
-                return;
+            } else {
+                Node<E> current = head;
+                while (current.next != null) {
+                    current = current.next;
+                }
+                current.next = newNode;
             }
-
-            Node<E> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
             size++;
         }
 
         int getSize() {
             return size;
+        }
+
+        @Override
+        public Iterator<E> iterator() {
+            return new Iterator<E>() {
+                private Node<E> current = head;
+
+                @Override
+                public boolean hasNext() {
+                    return current != null;
+                }
+
+                @Override
+                public E next() {
+                    if (!hasNext()) {
+                        throw new NoSuchElementException();
+                    }
+                    E data = current.element;
+                    current = current.next;
+                    return data;
+                }
+            };
         }
     }
 
