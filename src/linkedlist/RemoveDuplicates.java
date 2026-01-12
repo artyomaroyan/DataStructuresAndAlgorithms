@@ -26,31 +26,38 @@ public class RemoveDuplicates {
         linkedList.add(421);
 
         IO.println("before remove");
-        for (int i = 0; i < linkedList.size; i++) {
-            IO.println(linkedList.head);
+        for (Integer element : linkedList) {
+            IO.println(element);
         }
+        IO.println("size before remove " + linkedList.getSize() + "\n");
 
         removeDuplicatesIterative(linkedList);
 
         IO.println("after remove");
-        for (int i = 0; i < linkedList.getSize(); i++) {
-            IO.println(linkedList.head);
+        for (Integer element : linkedList) {
+            IO.println(element);
         }
+        IO.println("size after remove " + linkedList.getSize());
     }
 
     // Iterative Approach
-    private static <T> void removeDuplicatesIterative(CustomLinkedList<T> head) {
-        if (head == null || head.next == null) {
+    private static <T> void removeDuplicatesIterative(CustomLinkedList<T> list) {
+        if (list.head == null || list.head.next == null) {
             return;
         }
 
-        Node<T> current = head;
-        while (current.next != null) {
-            if (current.element == current.next.element) {
-                current.next = current.next.next;
-            } else {
-                current = current.next;
+        Node<T> current = list.head;
+        while (current != null && current.next != null) {
+            Node<T> runner = current;
+            while (runner.next != null) {
+                if (current.element.equals(runner.next.element)) {
+                    runner.next = runner.next.next;
+                    list.size--;
+                } else {
+                    runner = runner.next;
+                }
             }
+            current = current.next;
         }
     }
 
@@ -78,7 +85,7 @@ public class RemoveDuplicates {
 
         @Override
         public Iterator<E> iterator() {
-            return new Iterator<E>() {
+            return new Iterator<>() {
                 private Node<E> current = head;
 
                 @Override
