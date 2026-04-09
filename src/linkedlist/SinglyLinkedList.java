@@ -300,19 +300,16 @@ class GenericLinkedList<E> {
         return size;
     }
 
-    private static class Node<E> {
-        E element;
-        Node<E> next;
-
-        Node(E e) {
-            this.element = e;
-        }
+    public E get(int index) {
+        checkElementIndex(index);
+        return node(index).element;
     }
 
     void add(E e) {
         final Node<E> newNode = new Node<>(e);
         if (head == null) {
             head = newNode;
+            size++;
             return;
         }
         Node<E> current = head;
@@ -389,6 +386,32 @@ class GenericLinkedList<E> {
             current = next;
         }
         head = previous;
+    }
+
+    private Node<E> node(int index) {
+        Node<E> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
+    }
+
+    private void checkElementIndex(int index) {
+        if (!checkIndex(index))
+            throw new IndexOutOfBoundsException("Մի բան էն չի!");
+    }
+
+    private boolean checkIndex(int index) {
+        return index >=0 && index < size;
+    }
+
+    private static class Node<E> {
+        E element;
+        Node<E> next;
+
+        Node(E e) {
+            this.element = e;
+        }
     }
 }
 
