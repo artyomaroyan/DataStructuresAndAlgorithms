@@ -15,13 +15,6 @@ public class DetectLoop {
         CustomLinkedList<Integer> list = new CustomLinkedList<>();
         for (int i = 0; i < 50; i++) {
             list.add(i);
-
-//            IO.print("[");
-//            for (int j = 0; j <= i; j++) {
-//                IO.print(list.get(j));
-//                if (j < i) IO.print(", ");
-//            }
-//            IO.println("]");
         }
 
         list.createLoop(20);
