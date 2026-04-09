@@ -1,61 +1,55 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.logging.Logger;
-
-import static java.util.logging.Level.INFO;
-
 /**
  * Author: artyom_aroyan
  * Date: 10.07.25
  * Time: 02:47:09
  */
-public class RandomNumbers {
-    private static final Random RANDOM = new Random();
-    private static final Logger logger = Logger.getLogger(RandomNumbers.class.getName());
+private static final Random RANDOM = new Random();
 
-    static void main() {
-        generateRandomIntNumber();
-        generateRandomDoubleNumber();
-        randomDoubleNumbers();
-    }
+void main() {
+    generateRandomIntNumber();
+    generateRandomDoubleNumber();
+    randomDoubleNumbers();
+}
 
-    private static void generateRandomIntNumber() {
-        // Generate between 10 and 30 random numbers
-        int count = RANDOM.nextInt(5) + 15;
+private static void generateRandomIntNumber() {
+    // Generate between 10 and 30 random numbers
+    int count = RANDOM.nextInt(5) + 15;
 
-        // Generate random integers (0-100)
-        int[] numbers = RANDOM.ints(count, -100, 100).toArray();
+    // Generate random integers (0-100)
+    int[] numbers = RANDOM.ints(count, -100, 100).toArray();
+    IO.println(String.format("Generated %d random integers: %s", count, Arrays.toString(numbers)));
+}
 
-        logger.log(INFO, () -> "Generated " + count + " random integers: " + Arrays.toString(numbers));
-    }
+private static void generateRandomDoubleNumber() {
+    // Generate between 15 and 30 random numbers
+    int count = RANDOM.nextInt(1) + 3;
 
-    private static void generateRandomDoubleNumber() {
-        // Generate between 15 and 30 random numbers
-        int count = RANDOM.nextInt(1) + 3;
+    // Stores both Integers and Doubles
+    List<Number> numbers = new ArrayList<>();
 
-        // Stores both Integers and Doubles
-        List<Number> numbers = new ArrayList<>();
-
-        for (int i = 0; i < count; i++) {
-            if (RANDOM.nextBoolean()) { // 50% chance for int, 50% for double
-                numbers.add(RANDOM.nextInt(101)); // Integer (0-100)
-            } else {
-                numbers.add(Math.round(RANDOM.nextDouble() * 100 * 100.0) / 100.0); // Double (0.0-100.0, 2 decimal places)
-            }
-        }
-        logger.log(INFO, () -> "Generated " + count + " mixed random numbers: " + numbers);
-    }
-
-    private static void randomDoubleNumbers() {
-        int count = 20;
-        double min = 10_000;
-        double max = 100_000;
-
-        for (int i = 0; i < count; i++) {
-            double value = min + (max - min) * RANDOM.nextDouble();
-            System.out.printf("%.2f%n", value);
+    for (int i = 0; i < count; i++) {
+        if (RANDOM.nextBoolean()) { // 50% chance for int, 50% for double
+            numbers.add(RANDOM.nextInt(101)); // Integer (0-100)
+        } else {
+            numbers.add(Math.round(RANDOM.nextDouble() * 100 * 100.0) / 100.0); // Double (0.0-100.0, 2 decimal places)
         }
     }
+    IO.println(String.format("Generated %d mixed double or integer random numbers: %s", count, numbers));
+}
+
+private static void randomDoubleNumbers() {
+    int count = 20;
+    double min = 10_000;
+    double max = 100_000;
+
+    double[] numbers = new double[count];
+    for (int i = 0; i < count; i++) {
+        numbers[i] = min + (max - min) * RANDOM.nextDouble();
+    }
+
+    System.out.printf("Generated %d double random numbers: %s", count,
+            Arrays.stream(numbers)
+                    .mapToObj(v -> String.format("%.2f", v))
+                    .collect(Collectors.joining(", ", "[", "]"))
+    );
 }
