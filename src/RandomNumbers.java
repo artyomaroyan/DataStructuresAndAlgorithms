@@ -13,10 +13,10 @@ void main() {
 
 private static void generateRandomIntNumber() {
     // Generate between 10 and 30 random numbers
-    int count = RANDOM.nextInt(5) + 15;
+    int count = RANDOM.nextInt(5) + 10;
 
     // Generate random integers (0-100)
-    int[] numbers = RANDOM.ints(count, -100, 100).toArray();
+    int[] numbers = RANDOM.ints(count, 0, 100).toArray();
     IO.println(String.format("Generated %d random integers: %s", count, Arrays.toString(numbers)));
 }
 
