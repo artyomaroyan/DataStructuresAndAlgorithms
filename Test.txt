@@ -1,0 +1,107 @@
+------------------------------------------------------------------------------------------------------------------------
+void main() {
+    LinkedList<Integer> list = new LinkedList<>();
+    list.add(428);
+    list.add(54);
+    list.add(251);
+    list.add(3717);
+    list.add(78);
+    list.add(1510);
+    list.add(43);
+    list.add(9845);
+    list.add(61);
+    list.add(9131);
+    list.add(62);
+    list.add(25);
+    list.add(6379);
+    list.add(50);
+    list.add(71);
+    list.add(5803);
+    list.add(24);
+    list.add(6154);
+    list.add(79);
+    list.add(9131);
+    list.add(30);
+    list.add(9230);
+    list.add(66);
+    list.add(8042);
+    list.add(49);
+
+    println("Sorted " + quickSort(list));
+
+//    Integer pivot1 = list.get(list.size() >> 1);
+//    println("result of Integer pivot = list.get(list.size() >> 1); - " + pivot1);
+//
+//    Integer pivot2 = list.size() >> 1;
+//    println("result of Integer pivot2 = list.size() >> 1; - " + pivot2);
+//
+//    Integer pivot3 = list.get(list.size() / 2);
+//    println("result of 'Integer pivot3 = list.get(list.size() / 2);' - " + pivot3);
+//    Integer pivot4 = list.size() / 2;
+//    println("result of 'Integer pivot4 = list.size() / 2;' - " + pivot4);
+
+//    int pivot = list.peekFirst();
+//    IO.println("Peek first (pivot) " + pivot);
+//
+//    LinkedList<Integer> smaller = new LinkedList<>();
+//    LinkedList<Integer> larger = new LinkedList<>();
+//
+//    for (Integer integer : list) {
+//        if (pivot > integer) smaller.add(integer);
+//        if (pivot < integer) larger.add(integer);
+//    }
+//    IO.println("Smaller " + smaller);
+//    IO.println("Larger " + larger);
+
+//    int[] array = {251, 1510, 3717, 9131, 8042, 428, 6379, 9845, 6154, 9230, 5803};
+//    int pivot = array[0];
+//
+//    int[] newArray;
+//    for (int i = 0; i < array.length; i++) {
+//        if (array[i] > pivot) {
+//            newArray = new int[]{array[i]};
+//            IO.print(Arrays.toString(newArray));
+//        }
+}
+
+private static LinkedList<Integer> quickSort(LinkedList<Integer> list) {
+    if (list.size() < 2) return list;
+    LinkedList<Integer> smaller = new LinkedList<>();
+    LinkedList<Integer> same = new LinkedList<>();
+    LinkedList<Integer> larger = new LinkedList<>();
+
+    Integer pivot = list.get(list.size() >> 1);
+
+    for (Integer i : list) {
+        if (i < pivot) smaller.add(i);
+        else if (i > pivot) larger.add(i);
+        else same.add(i);
+    }
+    quickSort(smaller);
+    quickSort(larger);
+
+    list.clear();
+    list.addAll(smaller);
+    list.addAll(same);
+    list.addAll(larger);
+    return list;
+}
+------------------------------------------------------------------------------------------------------------------------
+//    private static LinkedList<Integer> quickSort(LinkedList<Integer> list) {
+//        if (list.size() < 2) return list;
+//        int pivot = list.get(list.size() >> 1); // will use later
+//        int pivot = list.get(list.peekFirst());
+//
+//        // This is partitioning of main linked list.
+//        LinkedList<Integer> smaller = new LinkedList<>();
+//        LinkedList<Integer> larger = new LinkedList<>();
+//        LinkedList<Integer> sorted;
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            if (pivot > list.get(i)) smaller.add(list.get(i));
+//            if (pivot < list.get(i)) larger.add(list.get(i));
+//        }
+//        sorted = quickSort(smaller) + pivot + quickSort(larger);
+//        return sorted;
+//    }
+------------------------------------------------------------------------------------------------------------------------
